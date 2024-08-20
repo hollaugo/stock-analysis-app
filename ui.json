@@ -1,0 +1,208 @@
+{
+    "metadata": {
+        "writer_version": "0.6.1"
+    },
+    "components": {
+        "root": {
+            "id": "root",
+            "type": "root",
+            "content": {
+                "appName": "My App"
+            },
+            "isCodeManaged": false,
+            "position": 0,
+            "handlers": {},
+            "visible": true
+        },
+        "c0f99a9e-5004-4e75-a6c6-36f17490b134": {
+            "id": "c0f99a9e-5004-4e75-a6c6-36f17490b134",
+            "type": "page",
+            "content": {
+                "pageMode": "compact"
+            },
+            "isCodeManaged": false,
+            "position": 0,
+            "parentId": "root",
+            "handlers": {},
+            "visible": true
+        },
+        "bebc5fe9-63a7-46a7-b0fa-62303555cfaf": {
+            "id": "bebc5fe9-63a7-46a7-b0fa-62303555cfaf",
+            "type": "header",
+            "content": {
+                "text": "@{app_title}"
+            },
+            "isCodeManaged": false,
+            "position": 0,
+            "parentId": "c0f99a9e-5004-4e75-a6c6-36f17490b134",
+            "handlers": {},
+            "visible": true
+        },
+        "ajsx6b8sres4rebw": {
+            "id": "ajsx6b8sres4rebw",
+            "type": "columns",
+            "content": {},
+            "isCodeManaged": false,
+            "position": 1,
+            "parentId": "c0f99a9e-5004-4e75-a6c6-36f17490b134",
+            "handlers": {},
+            "visible": true
+        },
+        "t9xtgx5j03uvl6sl": {
+            "id": "t9xtgx5j03uvl6sl",
+            "type": "column",
+            "content": {
+                "title": "Input ",
+                "width": "1"
+            },
+            "isCodeManaged": false,
+            "position": 0,
+            "parentId": "ajsx6b8sres4rebw",
+            "handlers": {},
+            "visible": true
+        },
+        "m2hqy8qvbaofuaan": {
+            "id": "m2hqy8qvbaofuaan",
+            "type": "column",
+            "content": {
+                "width": "1"
+            },
+            "isCodeManaged": false,
+            "position": 1,
+            "parentId": "ajsx6b8sres4rebw",
+            "handlers": {},
+            "visible": true
+        },
+        "6zvs7kna6r75leq6": {
+            "id": "6zvs7kna6r75leq6",
+            "type": "textinput",
+            "content": {
+                "label": "Stock Ticker",
+                "placeholder": "MSFT, APPL"
+            },
+            "isCodeManaged": false,
+            "position": 1,
+            "parentId": "t9xtgx5j03uvl6sl",
+            "handlers": {},
+            "visible": true,
+            "binding": {
+                "eventType": "wf-change",
+                "stateRef": "ticker"
+            }
+        },
+        "zvaoxdrnnrycxoj6": {
+            "id": "zvaoxdrnnrycxoj6",
+            "type": "section",
+            "content": {
+                "title": "Output"
+            },
+            "isCodeManaged": false,
+            "position": 0,
+            "parentId": "m2hqy8qvbaofuaan",
+            "handlers": {},
+            "visible": true
+        },
+        "4di7r502igvsdws5": {
+            "id": "4di7r502igvsdws5",
+            "type": "heading",
+            "content": {
+                "text": "@{stock_info.name} Summary",
+                "headingType": "h4"
+            },
+            "isCodeManaged": false,
+            "position": 1,
+            "parentId": "zvaoxdrnnrycxoj6",
+            "handlers": {},
+            "visible": true
+        },
+        "jf13y1xx1sjxtl0w": {
+            "id": "jf13y1xx1sjxtl0w",
+            "type": "dropdowninput",
+            "content": {
+                "label": "Time Frame",
+                "options": "@{timeframe_options}"
+            },
+            "isCodeManaged": false,
+            "position": 2,
+            "parentId": "t9xtgx5j03uvl6sl",
+            "visible": true,
+            "binding": {
+                "eventType": "wf-option-change",
+                "stateRef": "time_frame"
+            }
+        },
+        "whoioudi7ug3n8o6": {
+            "id": "whoioudi7ug3n8o6",
+            "type": "button",
+            "content": {
+                "text": "Get Analysis"
+            },
+            "isCodeManaged": false,
+            "position": 3,
+            "parentId": "t9xtgx5j03uvl6sl",
+            "handlers": {
+                "wf-click": "handle_stock_selection"
+            },
+            "visible": true
+        },
+        "2ubb41wzk2cv4ho2": {
+            "id": "2ubb41wzk2cv4ho2",
+            "type": "dataframe",
+            "content": {
+                "dataframe": "@{stock_dataframe}"
+            },
+            "isCodeManaged": false,
+            "position": 4,
+            "parentId": "zvaoxdrnnrycxoj6",
+            "handlers": {},
+            "visible": true
+        },
+        "41qyw6yg9a0l2pj8": {
+            "id": "41qyw6yg9a0l2pj8",
+            "type": "text",
+            "content": {
+                "text": "@{stock_summary.content}",
+                "useMarkdown": "yes"
+            },
+            "isCodeManaged": false,
+            "position": 2,
+            "parentId": "zvaoxdrnnrycxoj6",
+            "handlers": {},
+            "visible": "stock_summary_visible"
+        },
+        "au1bfyojn8aanwod": {
+            "id": "au1bfyojn8aanwod",
+            "type": "separator",
+            "content": {},
+            "isCodeManaged": false,
+            "position": 3,
+            "parentId": "zvaoxdrnnrycxoj6",
+            "handlers": {},
+            "visible": true
+        },
+        "jpzg6egglrdh8kx6": {
+            "id": "jpzg6egglrdh8kx6",
+            "type": "message",
+            "content": {
+                "message": "@{my_app.message}"
+            },
+            "isCodeManaged": false,
+            "position": 0,
+            "parentId": "t9xtgx5j03uvl6sl",
+            "handlers": {},
+            "visible": true
+        },
+        "7ggfm7rpzvlp7m7d": {
+            "id": "7ggfm7rpzvlp7m7d",
+            "type": "message",
+            "content": {
+                "message": "@{msg}"
+            },
+            "isCodeManaged": false,
+            "position": 0,
+            "parentId": "zvaoxdrnnrycxoj6",
+            "handlers": {},
+            "visible": true
+        }
+    }
+}
